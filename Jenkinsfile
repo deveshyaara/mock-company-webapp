@@ -1,10 +1,10 @@
 pipeline {
-    agent any  // This tells Jenkins to run the pipeline on any available agent.
+    agent any  // Specifies that the pipeline will run on any available agent
 
     stages {
         stage('Build') {
             steps {
-                // Build step (replace this with your actual build command)
+                // Build step (replace with actual build commands)
                 script {
                     sh './gradlew assemble'
                 }
@@ -13,13 +13,13 @@ pipeline {
 
         stage('Test') {
             steps {
-                // Test step (replace this with your actual test command)
+                // Test step (replace with actual test commands)
                 script {
                     sh './gradlew test'
                 }
             }
         }
 
-        // Add more stages as needed (e.g., Deploy)
+        // You can add more stages like 'Deploy', 'Lint', etc. as needed
     }
 }
