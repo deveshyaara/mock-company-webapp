@@ -1,34 +1,25 @@
 pipeline {
-    agent any
+    agent any  // This means the pipeline can run on any available agent.
 
     stages {
-        stage('Checkout') {
-            steps {
-                // TODO: Checkout the repository code
-                checkout scm
-            }
-        }
-
         stage('Build') {
             steps {
-                // TODO: Add Gradle build command
-                sh './gradlew assemble'
+                // Your build command here (e.g., Gradle or Maven build)
+                script {
+                    sh './gradlew assemble'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                // TODO: Add Gradle test command
-                sh './gradlew test'
+                // Your test command here (e.g., running unit tests)
+                script {
+                    sh './gradlew test'
+                }
             }
         }
-    }
 
-    post {
-        always {
-            // Always archive build and test results, if available
-            archiveArtifacts artifacts: '**/build/libs/*.jar', allowEmptyArchive: true
-            junit '**/build/test-results/**/*.xml'
-        }
+        // Add more stages as needed (e.g., Deploy)
     }
 }
