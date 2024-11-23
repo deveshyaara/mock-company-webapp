@@ -1,10 +1,10 @@
 pipeline {
-    agent any  // This means the pipeline can run on any available agent.
+    agent any  // This tells Jenkins to run the pipeline on any available agent.
 
     stages {
         stage('Build') {
             steps {
-                // Your build command here (e.g., Gradle or Maven build)
+                // Build step (replace this with your actual build command)
                 script {
                     sh './gradlew assemble'
                 }
@@ -13,7 +13,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                // Your test command here (e.g., running unit tests)
+                // Test step (replace this with your actual test command)
                 script {
                     sh './gradlew test'
                 }
